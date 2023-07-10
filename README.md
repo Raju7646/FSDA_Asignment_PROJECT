@@ -32,6 +32,40 @@ cherry	131
 papaya	52
 
 
+![image](https://github.com/Raju7646/FSDA_Asignment_PROJECT/assets/109983697/9d16f59c-743b-4362-9162-2d4921869c48)
+
+![image](https://github.com/Raju7646/FSDA_Asignment_PROJECT/assets/109983697/dbb10660-b639-4c8f-b239-069f1afe8ba5)
+
+
+
+
+task 2 
+
+
+with call_duration as 
+(
+    select caller as phone_number ,sum(duration) as duration from calls group by caller
+    union all
+    select callee  as phone_number, sum(duration) as duration from calls group by callee
+)
+select name from phones P left outer join call_duration CD on P.phone_number=CD.phone_number
+group by name
+having sum(duration)>10
+order by name;
+
+
+output:-
+name
+anna
+jack
+
+<img width="604" alt="image" src="https://github.com/Raju7646/FSDA_Asignment_PROJECT/assets/109983697/8a1e39d5-7f4d-461c-9c0f-3f56d603106f">
+
+
+
+
+
+
 
 
 
